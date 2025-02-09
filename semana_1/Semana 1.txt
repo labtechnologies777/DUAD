@@ -1,0 +1,61 @@
+***** Algoritmo ver video YouTube. ***** 
+
+
+Version 3
+
+1. Inicio
+2. Si tengo un momento libre:
+3. Enciendo la computadora
+    1. Presiono el botón de encender
+    2. Espero a que inicie
+4. Abro el navegador.
+5. Escribo www.youtube.com
+6. Espero a que cargue la página web.
+7. Escribo el nombre de lo que quiero ver en la barra de búsqueda.
+8. Presiono “Enter”.
+9. De la lista de videos escojo el más adecuado.
+10. Le doy “reproducir”
+11. Me siento a ver el video
+12. Termino de ver el video
+13. Si quiero continuar viendo más videos:
+    1. Busco otro video
+14. Cierro el navegador
+15. Apago la computadora
+16. Fin
+
+
+
+*****  Algoritmo rutina diaria ***** 
+
+
+1. Inicio
+2. Me despierto
+3. Me levanto de la cama
+4. Me pongo mis sandalias
+5. Tiendo la cama
+6. Me baño
+7. Preparo desayuno
+8. Si es de lunes a viernes:
+    1. Enciendo la computadora
+    2. Comienzo a trabajar
+    3. Reviso correos y mensajes
+    4. Continuo trabajando
+    5. Salgo de trabajar
+9. Si tengo hambre y quiero cocinar:
+    1. Preparo almuerzo
+10. Si tengo hambre y no quiero cocinar:
+    1. Pido comida express
+11. Si no:
+    1. No como
+12. Estudio 
+13. Si es lunes o miércoles:
+    1. Me conecto a las sesiones de dudas del curso de progre
+14. Preparo cena
+15. Aseo la casa
+16. Mientras la casa esté sucia:
+    1. Barro
+    2. Desinfecto
+    3. Acomodo
+    4. Aromatizo
+17. Duermo.
+18. Fin
