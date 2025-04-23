@@ -2,15 +2,17 @@
 #     1. Un atributo de `radius` (radio).
 #     2. Un método de `get_area` que retorne su área.
 
+# import math
+
 # class Circle():
-
-#     def get_area(self,radius):
+#     def __init__(self,radius):
 #         self.radius = radius 
-#         pi = float(3.14159265)
-#         print(f"The area of the circle is {pi * (radius**2)}")
 
-# circle_1 = Circle()
-# circle_1.get_area(50)
+#     def get_area(self):
+#         return f"The area of the circle is {math.pi * (self.radius**2)}"
+
+# circle_1 = Circle(50)
+# print(circle_1.get_area())
 
 #-----------------------------------------------------------------------------------------------
 #-----------------------------------------------------------------------------------------------
@@ -23,23 +25,28 @@
 
 
 # class Person:
-#     def __init__(self,name):
+#     def __init__(self):
+#         name = input("Who's getting on the bus? ")
 #         self.name = name
 
 #     def __repr__(self):
 #         return f"Person(name={self.name})"
 
+
 # class Bus:
-#         passenger_list = []
-#         max_passenger = 3
-#         def add_passengers(self):
-#             while len(self.passenger_list) < self.max_passenger:
-#                 name = input("Who's getting on the bus? ")
-#                 self.passenger_list.append(Person(name))
-#             else:
-#                 print("Bus capacity reached. No more passengers allowed")
-#             print(self.passenger_list)
-#             return self.passenger_list
+#         def __init__(self,max_passenger):
+#             self.passenger_list = []
+#             self.max_passenger = max_passenger
+            
+
+#         def add_passengers(self,passenger):
+#                 if len(self.passenger_list) < self.max_passenger:
+#                     self.passenger_list.append(passenger)
+#                 else:
+#                     print("Bus capacity reached. No more passengers allowed")
+#                 print(self.passenger_list)
+#                 return self.passenger_list
+
         
 #         def remove_passengers(self,passenger_list):
 #             name = input("Enter a name for a user you want to delete: ")
@@ -47,12 +54,18 @@
 #                 if name == passenger.name:
 #                     self.passenger_list.remove(passenger)
 #             print(self.passenger_list)
-        
 
-# passenger_1 = Bus()
-# passenger_1.add_passengers()
-# passenger_2 = Bus()
-# passenger_2.remove_passengers(passenger_1)
+# passenger_1 = Person()
+# passenger_2 = Person()
+# passenger_3 = Person()
+# passenger_4 = Person()
+# bus = Bus(3)
+# bus.add_passengers(passenger_1)
+# bus.add_passengers(passenger_2)
+# bus.add_passengers(passenger_3)
+# bus.add_passengers(passenger_4)
+# bus.remove_passengers(passenger_1)
+# bus.remove_passengers(passenger_2)
 
 #-----------------------------------------------------------------------------------------------
 # -----------------------------------------------------------------------------------------------
@@ -89,6 +102,8 @@
 #         self.mouth = mouth
 #         self.nose = nose
 
+#     def __str__(self):
+#         return f"The head has {self.eyes} eyes, {self.ears} ears, {self.mouth} mouth and {self.nose} nose"
 
 # class Torso:
 #     def __init__(self, right_arm, left_arm, right_leg, left_leg):
@@ -97,53 +112,60 @@
 #         self.right_leg = right_leg
 #         self.left_leg = left_leg
 
+#     def __str__(self):
+#         return f"The torso has two arms. {self.right_arm}. The torso also has two legs. {self.right_leg}"
 
 # class Arm:
-#     def __init__(self,hand, elbow, shoulder):
+#     def __init__(self,hand):
 #         self.hand = hand
-#         self.elbow = elbow
-#         self.shoulder = shoulder
 
+#     def __str__(self):
+#         return f"Each arm has a hand. {self.hand}"
 
 # class Hand:
-#     def __init__(self,fingers, knuckles):
+#     def __init__(self,fingers):
 #         self.fingers = fingers
-#         self.knuckles = knuckles
 
+#     def __str__(self):
+#         return f"The hand has {self.fingers} fingers"
 
 # class Leg:
-#     def __init__(self,feet, knee):
+#     def __init__(self,feet):
 #         self.feet = feet
-#         self.knee = knee
-        
 
+#     def __str__(self):
+#         return f"Each leg has a foot. {self.feet}"
 
 # class Feet:
-#     def __init__(self,toes,anckle):
+#     def __init__(self,toes):
 #         self.toes = toes
-#         self.anckle = anckle
 
+#     def __str__(self):
+#         return f"The foot has {self.toes} toes."
 
 # class Human:
 #     def __init__(self,head, torso):
 #         self.head = head
 #         self.torso = torso
-    
-#     def __repr__(self):
-#         return f"Human(self.head = {self.head}, self.torso = {self.torso}"
 
+#     def __str__(self):
+#         return f"""Human body is commposed as follows: 
+#         1. {self.head}
+#         2. {self.torso}
+#         """
 
+# person_right_hand = Hand("five")
+# person_left_hand = Hand("five")
+# person_right_arm = str(Arm(person_right_hand))
+# person_left_arm = Arm(person_left_hand)
 
-# person_hand = Hand("five", "five")
-# person_right_arm = Arm(person_hand, "one", "one")
-# person_left_arm = Arm(person_hand, "one", "one")
-
-# person_feet = Feet("five", "one")
-# person_right_leg = Leg(person_feet, "one")
-# person_left_leg = Leg(person_feet, "one")
+# person_right_feet = Feet("five")
+# person_left_feet = Feet("five")
+# person_right_leg = Leg(person_right_feet)
+# person_left_leg = Leg(person_left_feet)
 
 # person_torso = Torso(person_right_arm,person_left_arm,person_right_leg,person_left_leg)
-# person_head = Head("a", "b", "c", "d")
+# person_head = Head("two", "two", "one", "one")
 
 # person_body = Human(person_head, person_torso)
 # print(person_body)
