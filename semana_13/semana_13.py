@@ -5,8 +5,11 @@
 # def decorator(func):
 #     def wrapper(*args, **kwargs):
 #         print("Something is happening before the function is called.")
-#         func(*args, **kwargs)
+#         result = func(*args, **kwargs)
 #         print("Something is happening after the function is called.")
+#         print(f"Args = {args}, kwargs = {kwargs}")
+#         print(f"Result = {result}")
+#         return result
 #     return wrapper
 
 
@@ -21,41 +24,42 @@
 
 
 # @decorator
-# @execution_time_decorator
+# # @execution_time_decorator
 # def students(student_list):
 #     print("These are the top students:")
 #     for student in student_list:
 #         print(student)
+#     return student_list
 
 # student_list = ["John", "Mary", "Carl", "Ellie"]
 # students(student_list)
 
+#  -------------------------------------------------------------------------------------
 
 # 2. Cree un decorador que se encargue de revisar si todos los parámetros 
 # de la función que decore son números, y arroje una excepción de no ser así.
 
 
 # def decorator_func(original_func):
-#         def wrapper(*args):
+#         def wrapper(*args, **kwargs):
 #             for arg in args:
 #                 try:
-#                     int(arg)
-#                     print(f"'{arg}' is a number")
-#                 except ValueError:
-#                     print(f"'{arg}' is a letter")
+#                     if isinstance(arg, (int, float)):
+#                         print(f"'{arg}' is a number")
+#                     else:
+#                         raise ValueError(f"{arg} is not a valid number")
 #                 except Exception as ex:
 #                      print(f"An unexpected error occurred: {ex}")
-#             return original_func(*args)
+#             return original_func(*args, **kwargs)
 #         return wrapper
 
 # @decorator_func
 # def original_func(*args):
 #     print(f"Printing original data: {args} ")
 
-# original_func(0, "hello", 5, "bye")
+# original_func(5, "hello", 0.2, "bye")
 
-
-
+#  -------------------------------------------------------------------------------------
 
 # 3. Cree una clase de `User` que:
 #     - Tenga un atributo de `date_of_birth`.
@@ -64,15 +68,11 @@
 # Luego cree un decorador para funciones que acepten un `User` como parámetro 
 # que se encargue de revisar si el `User` es mayor de edad y arroje una excepción de no ser así.
 
-
-#  -------------------------------------------------------------------------------------
-
 # from datetime import date
 
 # class User:
 #     def __init__(self,date_of_birth):
 #         self.date_of_birth = date_of_birth
-    
 
 #     @property
 #     def user_age(self):
@@ -86,24 +86,22 @@
 #             )
 #         )
 
-# def require_user_to_be_adult(user: User):
-#     def decorator_func(func):
-#             def wrapper(*args):
-#                     try:
-#                         if user.user_age < 18:
-#                             raise ValueError("Under 18")
-#                         else:
-#                             return func(*args)
-#                     except Exception as ex:
-#                         print(f"An error occurred: {ex}")
-#             return wrapper
-#     return decorator_func
+# def decorator_func(func):
+#         def wrapper(user, *args, **kwargs):
+#                 try:
+#                     if user.user_age < 18:
+#                         raise ValueError("Under 18")
+#                     else:
+#                         return func(user, *args, **kwargs)
+#                 except Exception as ex:
+#                     print(f"An error occurred: {ex}")
+#         return wrapper
 
 
-# first_user = User(date(2000, 1, 1))
+# first_user = User(date(2020, 1, 1))
 
-# @require_user_to_be_adult(first_user)
+# @decorator_func
 # def age():
 #     print(f"Meets the age requirement")
 
-# age()
+# age(first_user)
